@@ -1,43 +1,43 @@
 #define LINKED_LIST_IMPLEMENTATION
-#include "linkedlist.h"
+#include "../include/linked_list.h"
 #include <stdio.h>
 
+// Función para imprimir enteros
 void print_int(int value) {
-    printf("%d", value);
+    printf("%d ", value);
 }
 
-bool int_cmp(int a, int b) {
-    return a == b;
-}
-
+// Función para imprimir caracteres
 void print_char(char value) {
-    printf("%c", value);
-}
-
-bool char_cmp(char a, char b) {
-    return a == b;
+    printf("%c ", value);
 }
 
 int main() {
+    // Lista de enteros
     List_int* nums = list_int_create();
-    list_int_append(nums, 10);
-    list_int_append(nums, 20);
-    
-    printf("Lista: ");
-    list_int_print(nums, print_int); // Usar función concreta para evitar errores
-    
-    list_int_destroy(nums);
-    
-    List_char *chars = list_char_create();
-    list_char_append(chars, 'a');
-    list_char_append(chars, 'b');
-    list_char_append(chars, 'c');
-    list_char_append(chars, 'd');
-    list_char_append(chars, 'e');
+    int a = 10, b = 20, c = 30;
+    list_int_append(nums, a);
+    list_int_append(nums, b);
+    list_int_append(nums, c);
 
-    printf("Lista: ");
-    list_char_print(chars, print_char);
+    printf("Lista de enteros: ");
+    list_int_print(nums, print_int); // Imprime la lista de enteros
+    printf("\n");
 
-    list_char_destroy(chars);
+    list_int_destroy(nums); // Destrucción de la lista
+
+    // Lista de caracteres
+    List_char* chars = list_char_create();
+    char x = 'a', y = 'b', z = 'c';
+    list_char_append(chars, x);
+    list_char_append(chars, y);
+    list_char_append(chars, z);
+
+    printf("Lista de caracteres: ");
+    list_char_print(chars, print_char); // Imprime la lista de caracteres
+    printf("\n");
+
+    list_char_destroy(chars); // Destrucción de la lista
+
     return 0;
 }
